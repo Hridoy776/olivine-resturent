@@ -21,7 +21,7 @@ const Food = () => {
     if (!data) return <div>Loading...</div>;
     const foods = JSON.parse(data)
     return (
-        <div className=' w-fit  my-5 mx-auto grid grid-cols-4 gap-6'>
+        <div className=' w-fit  my-5 mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6'>
             {
                 foods.map((food, index) => <div
                     key={index}

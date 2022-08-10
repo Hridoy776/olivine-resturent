@@ -72,12 +72,12 @@ const Navbar = () => {
     return (
         <nav
         style={{ ...navbarStyles, top: visible ? '0' : '-100px' }}
-        className={colorChange ? 'h-20 py-auto fixed w-full z-[100]  px-[100px] text-gray font-medium uppercase bg-white shadow-xl duration-700':"h-20 font-medium uppercase py-auto fixed w-full z-[100]  px-[100px] text-gray "}>
+        className={colorChange ? 'h-20 py-auto fixed w-full z-[100] px-[20px]  lg:px-[100px] text-gray font-medium uppercase bg-white shadow-xl duration-700':"h-20 font-medium uppercase py-auto fixed w-full z-[100]  lg:px-[100px] px-[20px] text-gray "}>
             <div className='flex my-5 justify-between items-center '>
-                <div className=''>
+                <div className='flex justify-start'>
                     <p className='text-3xl tracking-widest text-primary'>olivin</p>
                 </div>
-                <ul className='flex  text-xl justify-center items-center'>
+                <ul className='hidden lg:flex  text-xl justify-center items-center'>
                     <li className='mr-4'>
                     <Link href="/home" >
                         Home
@@ -92,11 +92,14 @@ const Navbar = () => {
                         <Link href={"/product"}>product</Link>
                     </li>
                 </ul>
-                <div className='flex '>
-               <p> <FaFacebook className='text-2xl' /></p>
+                <div className='hidden lg:flex '>
+                  <p> <FaFacebook className='text-2xl' /></p>
                   <p><FaInstagram className='text-2xl ml-4'/></p>
                   <p><FaLinkedin className='text-2xl ml-4'/></p>
                   <p><FaTwitter className='text-2xl ml-4'/></p>
+                </div>
+                <div className='lg:hidden'>
+                    Hello
                 </div>
             </div>
         </nav>

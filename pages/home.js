@@ -1,4 +1,5 @@
 import React from 'react';
+import Dines from '../components/Dines';
 import Experience from '../components/Experience';
 import Food from '../components/Food';
 import Footer from '../components/Footer';
@@ -24,6 +25,9 @@ const Home = () => {
             <section>
                 
                 <Experience/>
+            </section>
+            <section>
+                <Dines/>
             </section>
            </main>
            <Footer/>
