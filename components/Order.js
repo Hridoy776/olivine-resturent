@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-import useSWR from 'swr';
+import useSWR, {mutate, trigger} from 'swr';
 import Image from 'next/image';
 const fetcher = url => axios.get(url).then(res => res.data);
 const Order = () => {
@@ -11,27 +11,39 @@ const Order = () => {
     //Handle the loading state
     if (!orders) return <div>Loading...</div>;
 
+    const handleDelete= async(id)=>{
+        await axios.delete(`http://localhost:5000/order/${id}`)
+        .then(res=>console.log(res))
+        mutate('http://localhost:5000/order')
+    }
+
     return (
-        <table className='text-white  mx-auto'>
+        <table 
+        
+        className='text-white  mx-auto'>
             <thead className='text-sm h-[80px]  uppercase text-white order_table '>
                 <tr>
                     <th>cancel</th>
                     <th>Image</th>
-                <th>product</th>
-                <th>price</th>
-                <th>quantity</th>
-                <th>subtotal</th>
+                    <th>product</th>
+                    <th>price</th>
+                    <th>quantity</th>
+                    <th>subtotal</th>
                 </tr>
-                
+
             </thead>
-            <tbody className='text-center'>
+            <tbody
+            isValidating
+            className='text-center'>
                 {
-                    orders.map(order=>{
-                        return(
+                    orders.map(order => {
+                        return (
                             <tr key={order._id}>
-                                <td></td>
-                                <Image width="100px" height="100px"  src={order.img} alt={order.name}/>
-                                
+                                <td><button
+                                    onClick={() => handleDelete(order._id)}
+                                    className=''>x</button></td>
+                                <Image width="100px" height="100px" src={order.img} alt={order.name} />
+
                                 <td>{order.name}</td>
                                 <td>{order.price}</td>
                                 <td>{order.quantity}</td>
@@ -43,7 +55,7 @@ const Order = () => {
             <tbody>
 
             </tbody>
-            
+
         </table>
     );
 };
