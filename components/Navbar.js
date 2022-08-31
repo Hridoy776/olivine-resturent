@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link'
 import { FaFacebook ,FaInstagram,FaLinkedin,FaTwitter} from 'react-icons/fa';
-
+import {HiMenuAlt4} from 'react-icons/hi'
 const Navbar = () => {
 
     const [colorChange, setColorchange] = useState(false);
@@ -72,7 +72,7 @@ const Navbar = () => {
     return (
         <nav
         style={{ ...navbarStyles, top: visible ? '0' : '-100px' }}
-        className={colorChange ? 'h-20 py-auto fixed w-full z-[100] px-[20px]  lg:px-[100px] text-gray font-medium uppercase bg-white shadow-xl duration-700':"h-20 font-medium uppercase py-auto fixed w-full z-[100]  lg:px-[100px] px-[20px] text-gray "}>
+        className={colorChange ? 'h-20 py-auto fixed w-full z-[100] px-[20px]  lg:px-[100px] text-white font-medium uppercase bg-black shadow-xl duration-700':"h-20 font-medium uppercase py-auto fixed w-full z-[100]  lg:px-[100px] px-[20px] text-gray "}>
             <div className='flex my-5 justify-between items-center '>
                 <div className='flex justify-start'>
                     <p className='text-3xl tracking-widest text-primary'>olivin</p>
@@ -91,6 +91,9 @@ const Navbar = () => {
                     <li className='mr-4'>
                         <Link href={"/product"}>product</Link>
                     </li>
+                    <li className='mr-4'>
+                        <Link href={"/shop"}>shop</Link>
+                    </li>
                 </ul>
                 <div className='hidden lg:flex '>
                   <p> <FaFacebook className='text-2xl' /></p>
@@ -99,7 +102,7 @@ const Navbar = () => {
                   <p><FaTwitter className='text-2xl ml-4'/></p>
                 </div>
                 <div className='lg:hidden'>
-                    Hello
+                <HiMenuAlt4 className='text-3xl'/>
                 </div>
             </div>
         </nav>

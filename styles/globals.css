@@ -30,3 +30,36 @@ a {
     background: black;
   }
 } */
+
+table{
+  width: 90%;
+  margin-top: 30px;
+  max-width: 100%;
+  
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: wheat;
+  background: none;
+  color: inherit;
+  font-size: 16px;
+  font-size: 1rem;
+}
+tbody{
+  border-collapse: collapse;
+}
+
+.order_table{
+  border: 1px solid wheat;
+  margin: 0 -1px 24px 0;
+  text-align: center;
+  width: 100%;
+  border-collapse: separate;
+  border-radius: 5px;
+}
+
+tr{
+  border: 1px solid wheat;
+  border-collapse: collapse;
+}
