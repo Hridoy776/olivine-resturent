@@ -16,7 +16,7 @@ const Food = () => {
 
 
     const { data: foods, error } = useSWR('http://localhost:5000/foods', fetcher);
-    console.log(foods)
+    
     if (error) return <div>Failed to load</div>;
     //Handle the loading state
     if (!foods) return <div>Loading...</div>;

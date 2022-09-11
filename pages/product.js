@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import withAuth from '../Hoc/withAuth';
 
 const product = () => {
     return (
@@ -10,4 +11,4 @@ const product = () => {
     );
 };
 
-export default product;
+export default withAuth(product);

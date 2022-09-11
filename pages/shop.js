@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Order from '../components/Order';
 
 const shop = () => {
+    
     return (
         <>
             <Navbar/>

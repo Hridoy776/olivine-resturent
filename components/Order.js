@@ -1,9 +1,16 @@
 import React from 'react';
 import axios from 'axios'
-import useSWR, {mutate, trigger} from 'swr';
+import useSWR, { mutate,  } from 'swr';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 const fetcher = url => axios.get(url).then(res => res.data);
 const Order = () => {
+
+    const route = useRouter()
+
+    const handleDetails = (id) => {
+        route.push(`/food/${id}`)
+    }
 
     const { data: orders, error } = useSWR('http://localhost:5000/order', fetcher);
     console.log(orders)
@@ -11,16 +18,16 @@ const Order = () => {
     //Handle the loading state
     if (!orders) return <div>Loading...</div>;
 
-    const handleDelete= async(id)=>{
+    const handleDelete = async (id) => {
         await axios.delete(`http://localhost:5000/order/${id}`)
-        .then(res=>console.log(res))
+            .then(res => console.log(res))
         mutate('http://localhost:5000/order')
     }
 
     return (
-        <table 
-        
-        className='text-white  mx-auto'>
+        <table
+
+            className='text-white  mx-auto'>
             <thead className='text-sm h-[80px]  uppercase text-white order_table '>
                 <tr>
                     <th>cancel</th>
@@ -33,8 +40,8 @@ const Order = () => {
 
             </thead>
             <tbody
-            isValidating
-            className='text-center'>
+                isValidating
+                className='text-center'>
                 {
                     orders.map(order => {
                         return (
@@ -42,11 +49,14 @@ const Order = () => {
                                 <td><button
                                     onClick={() => handleDelete(order._id)}
                                     className=''>x</button></td>
-                                <Image width="100px" height="100px" src={order.img} alt={order.name} />
+                                <Image
+                                    onClick={() => handleDetails(order._id)}
+                                    width="100px" height="100px" src={order.img} alt={order.name} />
 
                                 <td>{order.name}</td>
                                 <td>{order.price}</td>
                                 <td>{order.quantity}</td>
+                                <td>{order.price}</td>
                             </tr>
                         )
                     })
