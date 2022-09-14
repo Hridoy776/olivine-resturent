@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-import useSWR, { mutate,  } from 'swr';
+import useSWR, { mutate, } from 'swr';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 const fetcher = url => axios.get(url).then(res => res.data);
@@ -12,16 +12,16 @@ const Order = () => {
         route.push(`/food/${id}`)
     }
 
-    const { data: orders, error } = useSWR('http://localhost:5000/order', fetcher);
+    const { data: orders, error } = useSWR('https://olivine-resturent.onrender.com/order', fetcher);
     console.log(orders)
     if (error) return <div>Failed to load</div>;
     //Handle the loading state
     if (!orders) return <div>Loading...</div>;
 
     const handleDelete = async (id) => {
-        await axios.delete(`http://localhost:5000/order/${id}`)
+        await axios.delete(`https://olivine-resturent.onrender.com/order/${id}`)
             .then(res => console.log(res))
-        mutate('http://localhost:5000/order')
+        mutate('https://olivine-resturent.onrender.com/order')
     }
 
     return (

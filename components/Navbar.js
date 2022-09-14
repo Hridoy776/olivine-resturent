@@ -87,7 +87,7 @@ const Navbar = () => {
         </div>
         <ul className='hidden lg:flex  text-xl justify-center items-center'>
           <li className='mr-4'>
-            <Link href="/home" >
+            <Link href="/" >
               Home
             </Link>
           </li>

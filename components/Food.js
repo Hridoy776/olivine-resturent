@@ -15,14 +15,14 @@ const Food = () => {
 
 
 
-    const { data: foods, error } = useSWR('http://localhost:5000/foods', fetcher);
-    
+    const { data: foods, error } = useSWR('https://olivine-resturent.onrender.com/foods', fetcher);
+
     if (error) return <div>Failed to load</div>;
     //Handle the loading state
     if (!foods) return <div>Loading...</div>;
 
     const addToCart = (id) => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://olivine-resturent.onrender.com/order/${id}`, {
             method: 'POST',
 
         })
@@ -31,7 +31,7 @@ const Food = () => {
 
     }
 
-    
+
 
 
 

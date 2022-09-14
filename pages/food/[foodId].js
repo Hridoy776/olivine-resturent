@@ -11,7 +11,7 @@ const ProductDetail = () => {
     const route = useRouter()
     const id = route.query.foodId;
 
-    const { data: product, error } = useSWR(`http://localhost:5000/order/${id}`, fetcher);
+    const { data: product, error } = useSWR(`https://olivine-resturent.onrender.com/order/${id}`, fetcher);
     console.log(product)
     if (error) return <div>Failed to load</div>;
     //Handle the loading state
@@ -27,7 +27,7 @@ const ProductDetail = () => {
                 <div className="lg:w-[90%] mx-auto">
                     <div className="lg:flex  mx-auto  items-start">
                         <div className='lg:w-[40%] m-6'>
-                        <Image  src={product.img} height="300px" width="500px" alt={product.name}/>
+                            <Image src={product.img} height="300px" width="500px" alt={product.name} />
                         </div>
                         <div className='m-6 lg:w-[50%] text-white '>
                             <p className='text-4xl capitalize mb-[13px]'>{product.name}</p>
@@ -35,7 +35,7 @@ const ProductDetail = () => {
                             <p className='mt-6 text-lg'>{product.details}</p>
                             <div className='my-5'>
                                 <input type="button" className='border-2 p-2' value="-" />
-                                <input className='w-[150px] p-2 rounded-none border-y-2 bg-black' type="number" step="1" min="1" max={product.quantity}  placeholder="1" inputMode='numeric' />
+                                <input className='w-[150px] p-2 rounded-none border-y-2 bg-black' type="number" step="1" min="1" max={product.quantity} placeholder="1" inputMode='numeric' />
                                 <input type="button" className='border-2 p-2' value="+" />
                                 <input type="button" className='text-secondary bg-white py-[10px] duration-500 hover:text-white hover:bg-primary mx-0 lg:mx-2 my-5 lg:my-0 px-16 capitalize' value="add to cart" />
                             </div>
@@ -43,7 +43,7 @@ const ProductDetail = () => {
                     </div>
                 </div>
             </section>
-            <Footer/>
+            <Footer />
         </>
     );
 };
