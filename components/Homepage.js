@@ -9,7 +9,7 @@ import Slider from '../components/Slider';
 
 const HomePage = () => {
     return (
-        <>
+        <div className='max-w-[1520px] mx-auto'>
             
             <section>
                 <Slider />
@@ -31,7 +31,7 @@ const HomePage = () => {
                 </section>
             </main>
             <Footer />
-        </>
+        </div>
     );
 };
 
