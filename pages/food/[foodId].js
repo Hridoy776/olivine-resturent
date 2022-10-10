@@ -19,10 +19,10 @@ const ProductDetail = () => {
     if (!product) return <div>Loading...</div>;
 
     const handleCount = (e) => {
-        setCounter(e.target.quantity.value)
+        setCounter(e.target.value)
     }
     const increament = () => {
-        setCounter(counter + 1)
+        setCounter(parseInt(counter) + 1)
     }
     const decreament = () => {
         setCounter(counter - 1)
@@ -51,7 +51,7 @@ const ProductDetail = () => {
                             <form onSubmit={handleOrder} className='my-5'>
 
                                 <input onClick={decreament} type="button" className='border-2 p-2' value="-" />
-                                <input className='w-[150px] appearance-none text-center text-white p-2 rounded-none font-bold outline-none border-y-2 bg-black' type="number" step="1" min="1" max={product.quantity} placeholder="1" inputMode='numeric' value={counter} onChange={handleCount} name='quantity' />
+                                <input className='w-[150px] appearance-none text-center text-white p-2 rounded-none font-bold outline-none border-y-2 bg-black' type="number" step="1" min="1" max={product.quantity} placeholder="1" inputMode='numeric' value={counter} onChange={(e)=>handleCount(e)} name='quantity' />
 
                                 <input onClick={increament} type="button" className='border-2 p-2' value="+" />
                                 <button className='text-secondary bg-white py-[10px] duration-500 hover:text-white hover:bg-primary mx-0 lg:mx-2 my-5 lg:my-0 px-16 capitalize' type="submit">add to cart</button>

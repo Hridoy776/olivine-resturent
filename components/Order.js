@@ -49,9 +49,12 @@ const Order = () => {
                                 <td><button
                                     onClick={() => handleDelete(order._id)}
                                     className=''>x</button></td>
+                                <td className='p-4'>
                                 <Image
-                                    onClick={() => handleDetails(order._id)}
-                                    width="100px" height="100px" src={order.img} alt={order.name} />
+                                
+                                onClick={() => handleDetails(order._id)}
+                                width="100px" height="100px" src={order.img} alt={order.name} />
+                                </td>
 
                                 <td>{order.name}</td>
                                 <td>{order.price}</td>
