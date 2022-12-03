@@ -39,7 +39,7 @@ a {
   }
 } */
 
-table{
+.order__table{
   width: 90%;
   margin-top: 30px;
   max-width: 100%;
@@ -53,8 +53,9 @@ table{
   color: inherit;
   font-size: 16px;
   font-size: 1rem;
+  color: white;
 }
-tbody{
+.order__table tbody{
   border-collapse: collapse;
 }
 
@@ -67,25 +68,32 @@ tbody{
   border-radius: 5px;
 }
 
-tr{
-  border: 1px solid gray solid wheat;
+.order__table tr{
+  border: 1px solid  wheat;
   border-collapse: collapse;
 }
 
 .shop_table {
-  border: 1px solid gray solid rgba(0,0,0,.1);
-  margin: 0 -1px solid gray 24px 0;
+  border: 1px solid  rgba(230, 31, 31, 0.1);
+  margin: 0 -1px  24px 0;
+  
   text-align: left;
   width: 460px;
-  border-collapse: separate;
+  border-collapse: collapse;
   border-radius: 5px;
+  color: white;
 }
 
 .shop_table th{
   font-weight: 700;
-  padding: 9px 12px;
+  padding: 15px 12px;
   line-height: 1.5em;
 }
+
 .shop_table tr{
-  border-bottom: 6px solid white;
+  border-bottom:2px solid rgba(71, 71, 71, 0.518);
 }
+
+
+
+

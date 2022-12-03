@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import useSWR, { mutate, } from 'swr';
 import Image from 'next/image';
+// import "../styles/Order.module.css"
 import { useRouter } from 'next/router';
 const fetcher = url => axios.get(url).then(res => res.data);
 const Order = () => {
@@ -27,7 +28,7 @@ const Order = () => {
     return (
         <table
 
-            className='text-white  mx-auto'>
+            className='text-white order__table   mx-auto'>
             <thead className='text-sm h-[80px]  uppercase text-white order_table '>
                 <tr>
                     <th>cancel</th>

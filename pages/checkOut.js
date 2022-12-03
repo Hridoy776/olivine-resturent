@@ -11,9 +11,9 @@ const checkOut = () => {
           <Navbar/>
           <section className=' '>
             <Cartbanner/>
-            <div className='grid grid-cols-2 gap-4 justify-center items-center'>
+            <div className='w-[1200px] mx-auto grid grid-cols-2 gap-4 justify-center '>
             <BealingDetails/>
-            <OrderProceedTable/>
+            <OrderProceedTable className="mx-auto"/>
             </div>
           </section>
             <Footer/>

@@ -2,20 +2,37 @@ import React from 'react';
 
 const OrderProceedTable = () => {
     return (
-        <table className='shop_table'>
-            <thead >
-                <tr className="border-b-orange-500">
-                    <th>product</th>
-                    <th>SubTotal</th>
-                </tr>
-            </thead>
-            <tbody className=''>
-                <tr>
-                    <td>name</td>
-                    <td>price</td>
-                </tr>
-            </tbody>
-        </table>
+        <div className=' w-fit h-fit my-[60px] mx-auto bg-[#151515] px-[40px] py-[30px]'>
+            <h1 className='text-2xl uppercase mb-8'>your order</h1>
+
+            <table className=" shop_table  ">
+                <thead>
+                    <tr className=' '>
+                        <th className=" ">order</th>
+                        <th className=" ">Contact</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr className=''>
+                        <th className=" ">order</th>
+                        <th className=" ">Contact</th>
+
+                    </tr>
+                    <tr className=''>
+                        <th className=" ">order</th>
+                        <th className=" ">Contact</th>
+
+                    </tr>
+                    <tr className=''>
+                        <th className=" ">order</th>
+                        <th className=" ">Contact</th>
+
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
     );
 };
 
