@@ -18,6 +18,7 @@ const SocialLogin = () => {
     if(loading){
         return <div>loading...</div>
     }
+    console.log(error)
     return (
         <div className=" grid grid-cols-1 lg:grid-cols-2 gap-2 mt-6  justify-center items-center ">
             <button onClick={handeGoogleSignIn} className='btn rounded-none btn-primary'>google sign in</button>
