@@ -1,11 +1,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import Router, { useRouter } from 'next/router';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import SocialLogin from '../components/SocialLogin';
 import ls from '../public/images/login-signup.jpg'
+import { loginUser } from '../redux/slices/auth/authSlice';
 
 const Login = () => {
-    const handleLogin = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const dispatch = useDispatch()
+    const router=useRouter()
+    const handleLogin = (e) => {
+        e.preventDefault()
+        dispatch(loginUser({ email, password }))
+        router.push('/home')
 
     }
     return (
@@ -26,13 +36,23 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" placeholder="email" name='email' className="input rounded-none input-bordered" required />
+                            <input
+                                type="text"
+                                placeholder="email"
+                                name='email'
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="input rounded-none input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" name='password' placeholder="password" className="input rounded-none input-bordered" required />
+                            <input 
+                            type="text" 
+                            name='password' 
+                            placeholder="password" 
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="input rounded-none input-bordered" required />
                             {/* {errorElement} */}
 
                             <p className=''>are you new ?
