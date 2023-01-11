@@ -1,11 +1,20 @@
 import Link from 'next/link';
-import React from 'react';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { createUser } from '../redux/slices/auth/authSlice';
 
 const signup = () => {
+    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
+    const {user,isLoading,isError,error}=useSelector((state)=>state)
+    const dispatch = useDispatch()
+    const router=useRouter()
 
-
-    const handleSignup =()=>{
-
+    const handleSignup = (e) => {
+        e.preventDefault()
+        dispatch(createUser({ email, password }))
+        router.push('/home')
     }
     return (
         <div className='flex flex-col min-h-screen my-auto justify-center items-center '>
@@ -16,13 +25,18 @@ const signup = () => {
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="text" placeholder="email" name='email' className="input input-bordered" required />
+                        <input type="text" placeholder="email" name='email' className="input input-bordered" required onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="text" name='password' placeholder="password" className="input input-bordered" required />
+                        <input
+                            type="text"
+                            name='password'
+                            placeholder="password"
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="input input-bordered" required />
                         {/* {errorElement} */}
 
                         <p className=''>have an account?
